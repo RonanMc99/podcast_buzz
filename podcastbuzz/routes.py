@@ -1,4 +1,4 @@
-from app import app
+from podcastbuzz import app
 
 # register home function
 @app.route("/")
