@@ -5,4 +5,4 @@ from flask import render_template
 @app.route("/")
 @app.route("/home")
 def home():
-    return "<h1>Welcome to PodcastBuzz</h1>"
+    return render_template('base.html')
