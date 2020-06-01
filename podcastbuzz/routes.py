@@ -5,4 +5,5 @@ from flask import render_template
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html')
+    user = {'username': 'Ronan'}
+    return render_template('home.html', user=user)
