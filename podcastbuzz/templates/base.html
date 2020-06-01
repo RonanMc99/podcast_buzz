@@ -29,13 +29,14 @@
         </header>
         <!-- end header -->
         <!-- main -->
-        <main>
-
+        <main class="container" id="content" role="main">
+            {% block content %}{% endblock %}
         </main>
         <!-- end main -->
         <!-- footer -->
-        <footer>
-
+        <footer id="footer">
+            <p>Copyright PodcastBuzz</p>
+            {% block footer %}{% endblock %}
         </footer>
         <!-- end footer -->
     </div>
