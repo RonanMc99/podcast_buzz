@@ -1,6 +1,6 @@
 from flask import render_template
 from podcastbuzz import app
-from podcastbuzz.forms import *
+from podcastbuzz.forms import LogonForm, SignupForm
 
 # register home function
 @app.route("/")
