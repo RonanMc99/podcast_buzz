@@ -3,6 +3,7 @@ from flask_login import current_user
 from podcastbuzz import app, mongo, bcrypt
 from podcastbuzz.forms import LogonForm, SignupForm
 
+
 # register home function
 @app.route("/")
 @app.route("/home")
@@ -10,9 +11,11 @@ def home():
     user = {'username': 'Ronan'}
     return render_template('home.html', user=user)
 
+
 @app.route('/logon')
 def logon():
     pass
+
 
 # Create the 'register' view
 @app.route('/register', methods=['GET', 'POST'])
@@ -31,7 +34,8 @@ def register():
         if existing_user is None:
             hash_pass = bcrypt.generate_password_hash(
                 forms.password.data).decode('utf-8')
-            users.insert_one({'username': request.form['username'],
+            users.insert_one({
+                            'username': request.form['username'],
                             'password': hash_pass,
                             'email': request.form['email']})
             flash('Your account has been created. Please logon', 'success')
