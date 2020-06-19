@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, request
+from flask import render_template, redirect, url_for, request, flash
 from podcastbuzz import app, mongo, bcrypt
 from podcastbuzz.forms import LogonForm, SignupForm
 
@@ -9,10 +9,9 @@ def home():
     user = {'username': 'Ronan'}
     return render_template('home.html', user=user)
 
-# @app.route('/logon')
-# def logon():
-#     form=LogonForm()
-#     return render_template('logon.html', form=form)
+@app.route('/logon')
+def logon():
+    pass
 
 # Create the 'register' view
 @app.route('/register', methods=['GET', 'POST'])
@@ -32,5 +31,9 @@ def register():
             hash_pass = bcrypt.generate_password_hash(
                 forms.password.data).decode('utf-8')
             users.insert_one({'username': request.form['username'],
-                              'password': hash_pass,
-                              'email': request.form['email']})
+                            'password': hash_pass,
+                            'email': request.form['email']})
+            flash('Your account has been created. Please logon', 'success')
+            return redirect(url_for('logon'))
+        flash('Sorry that email is already taken. Please choose another')
+    return render_template('register.html', forms=forms, title='Sign Up')
