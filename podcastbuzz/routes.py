@@ -1,5 +1,5 @@
-from flask import render_template, redirect, url_for,
-from podcastbuzz import app, mongo
+from flask import render_template, redirect, url_for, request
+from podcastbuzz import app, mongo, bcrypt
 from podcastbuzz.forms import LogonForm, SignupForm
 
 # register home function
@@ -20,8 +20,13 @@ def register():
     # Check to see if user is already logged in, if so, can't log in again
     if current_user.is_authenticated:
         return redirect(url_for('home'))
-    forms=SignupForm()
+    forms = SignupForm()
     # when the form is submitted...
     if forms.validate_on_submit():
         # create an instance of MongoDB and get all users
         users = mongo.db.users
+        # see if the (unique) email already exists
+        existing_user = users.find_one({'email': request.form['email']})
+        # if the user doesn't exist, hash the password and store the user in DB
+        if existing_user is None:
+            hash_pass = bcrypt.generate_password_hash(forms.password.data).decode('utf-8')
