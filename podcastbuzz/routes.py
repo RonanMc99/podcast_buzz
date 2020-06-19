@@ -29,4 +29,7 @@ def register():
         existing_user = users.find_one({'email': request.form['email']})
         # if the user doesn't exist, hash the password and store the user in DB
         if existing_user is None:
-            hash_pass = bcrypt.generate_password_hash(forms.password.data).decode('utf-8')
+            hash_pass = bcrypt.generate_password_hash(
+                forms.password.data).decode('utf-8')
+            users.insert_one(
+                {'username': request.form['username'], 'password': hash_pass, 'email': request.form['email']})
