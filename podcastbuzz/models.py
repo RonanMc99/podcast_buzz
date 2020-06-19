@@ -14,6 +14,6 @@ def load_user(user_id):
 # that Flask-Login expects user objects to have
 
 
-Class User(UserMixIn):
+class User(UserMixIn):
     def __init__(self, user_json):
         self.user_json = user_json
