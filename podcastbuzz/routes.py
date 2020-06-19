@@ -1,7 +1,8 @@
 from flask import render_template, redirect, url_for, request, flash
-from flask_login import current_user
+from flask_login import current_user, login_user
 from podcastbuzz import app, mongo, bcrypt
 from podcastbuzz.forms import LogonForm, SignupForm
+from podcast_buzz.models import User
 
 
 # register home function
@@ -49,3 +50,10 @@ def logon():
         users = mongo.db.users
         # try to find one with same name
         db_user = users.find_one({'email': request.form['email']})
+        # authenticate user
+        if db_user and bcrypt.check_password_hash(db_user['password'], request.form['password']):
+            loginuser = User(db_user)
+            login_user(loginuser, remember=forms.remember.data)
+        else:
+            flash('Login unsuccessful! Please try again', 'danger')
+    return render_template('login.html', forms=forms, title='Logon')
