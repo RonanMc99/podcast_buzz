@@ -11,7 +11,7 @@ def load_user(user_id):
     return User(user_json)
 
 
-# UserMixIn provides default implementations for the methods 
+# UserMixIn provides default implementations for the methods
 # that Flask-Login expects user objects to have
 
 
