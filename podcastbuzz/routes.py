@@ -12,11 +12,6 @@ def home():
     return render_template('home.html', user=user)
 
 
-@app.route('/logon')
-def logon():
-    pass
-
-
 # Create the 'register' view
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -42,3 +37,15 @@ def register():
             return redirect(url_for('logon'))
         flash('Sorry that email is already taken. Please choose another')
     return render_template('register.html', forms=forms, title='Sign Up')
+
+
+# Create the 'logon' view
+@app.route('/logon', methods=['GET, POST'])
+def logon():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
+    forms = LogonForm()
+    if forms.validate_on_submit():
+        users = mongo.db.users
+        # try to find one with same name
+        db_user = users.find_one({'email': request.form['email']})
