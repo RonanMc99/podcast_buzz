@@ -1,5 +1,6 @@
 from podcast_buzz import login_manager, mongo
 from bson.objectid import ObjectId
+from flask_login import UserMixIn
 
 
 # Use Flask_login to manage user sessions
@@ -17,3 +18,8 @@ def load_user(user_id):
 class User(UserMixIn):
     def __init__(self, user_json):
         self.user_json = user_json
+
+        # Without the id property, it is necessary to override get_id()
+        def get_id(self):
+            object_id = self.user_json.get('_id')
+            return str(object_id)
