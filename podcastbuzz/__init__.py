@@ -3,8 +3,10 @@ from config import Config
 from flask_pymongo import PyMongo
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 app.config.from_object(Config)
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
