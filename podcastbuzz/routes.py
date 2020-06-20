@@ -41,7 +41,7 @@ def register():
 
 
 # Create the 'logon' view
-@app.route('/logon', methods=['GET, POST'])
+@app.route('/logon', methods=['GET', 'POST'])
 def logon():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -56,7 +56,7 @@ def logon():
             login_user(loginuser, remember=forms.remember.data)
         else:
             flash('Login unsuccessful! Please try again', 'danger')
-    return render_template('login.html', forms=forms, title='Logon')
+    return render_template('logon.html', forms=forms, title='Logon')
 
 
 # Create the 'logout' view
