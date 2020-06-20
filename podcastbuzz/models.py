@@ -1,6 +1,6 @@
-from podcast_buzz import login_manager, mongo
+from podcastbuzz import login_manager, mongo
 from bson.objectid import ObjectId
-from flask_login import UserMixIn
+from flask_login import UserMixin
 
 
 # Use Flask_login to manage user sessions
@@ -15,7 +15,7 @@ def load_user(user_id):
 # that Flask-Login expects user objects to have
 
 
-class User(UserMixIn):
+class User(UserMixin):
     def __init__(self, user_json):
         self.user_json = user_json
 
