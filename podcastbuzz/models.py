@@ -19,7 +19,7 @@ class User(UserMixin):
     def __init__(self, user_json):
         self.user_json = user_json
 
-        # Without the id property, it is necessary to override get_id()
-        def get_id(self):
-            object_id = self.user_json.get('_id')
-            return str(object_id)
+    # Without the id property, it is necessary to override get_id()
+    def get_id(self):
+        object_id = self.user_json.get('_id')
+        return str(object_id)
