@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, request, flash
 from flask_login import current_user, login_user, logout_user
 from podcastbuzz import app, mongo, bcrypt
 from podcastbuzz.forms import LogonForm, SignupForm
-from podcast_buzz.models import User
+from podcastbuzz.models import User
 
 
 # register home function
