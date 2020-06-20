@@ -3,25 +3,25 @@
 {% block content%}
 <h2>Register below</h2>
 <form method="POST" action="" novalidate>
-    {{ form.hidden_tag() }}
+    {{ forms.hidden_tag() }}
     <p>
-        {{ form.username.label }}<br>
-        {{ form.username }}
+        {{ forms.username.label }}<br>
+        {{ forms.username }}
     </p>
     <p>
-        {{ form.email.label }}<br>
-        {{ form.email }}
+        {{ forms.email.label }}<br>
+        {{ forms.email }}
     </p>
     <p>
-        {{ form.password.label }}<br>
-        {{ form.password }}
+        {{ forms.password.label }}<br>
+        {{ forms.password }}
     </p>
     <p>
-        {{ form.confirm.label }}<br>
-        {{ form.confirm }}
+        {{ forms.confirm.label }}<br>
+        {{ forms.confirm }}
     </p>
     <p>
-        {{ form.submit }}
+        {{ forms.submit }}
     </p>
 </form>
 {% endblock %}
