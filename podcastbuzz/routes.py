@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for, request, flash
-from flask_login import current_user, login_user
+from flask_login import current_user, login_user, logout_user
 from podcastbuzz import app, mongo, bcrypt
 from podcastbuzz.forms import LogonForm, SignupForm
 from podcast_buzz.models import User
@@ -57,3 +57,10 @@ def logon():
         else:
             flash('Login unsuccessful! Please try again', 'danger')
     return render_template('login.html', forms=forms, title='Logon')
+
+
+# Create the 'logout' view
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
