@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, request, flash
+from flask import render_template, redirect, url_for, request, flash, Response
 from flask_login import current_user, login_user, logout_user
 from podcastbuzz import app, mongo, bcrypt
 from podcastbuzz.forms import LogonForm, SignupForm
@@ -66,3 +66,26 @@ def logon():
 def logout():
     logout_user()
     return redirect(url_for('home'))
+
+
+# search API
+@app.route('/search', methods=['GET'])
+def search():
+    query_param = request.args.get('q')
+    response = search_podcast(query_param)
+    modified_object = []
+    for result in response['results']:
+        modified_object.append(
+            {
+                'podcast_title_original': result['podcast_title_original'],
+                'podcast_id': result['podcast_id'],
+                'itunesid': result['itunes_id'],
+                'description_original': result['description_original'],
+                'image': result['image'],
+                'info_url': '/podcast/' + result['podcast_id']
+            }
+        )
+    response['results'] = modified_object
+    print(response)
+
+    return Response(response=json.dumps(response), status=200, content_type='application/json')
