@@ -3,6 +3,8 @@ from flask_login import current_user, login_user, logout_user
 from podcastbuzz import app, mongo, bcrypt
 from podcastbuzz.forms import LogonForm, SignupForm
 from podcastbuzz.models import User
+from podcastbuzz.listen_notes import search_podcast
+import json
 
 
 # register home function
