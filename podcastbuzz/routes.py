@@ -1,5 +1,5 @@
 from flask import render_template, redirect, url_for, request, flash, Response
-from flask_login import current_user, login_user, logout_user
+from flask_login import current_user, login_user, logout_user, login_required
 from podcastbuzz import app, mongo, bcrypt
 from podcastbuzz.forms import LogonForm, SignupForm
 from podcastbuzz.models import User
@@ -91,3 +91,20 @@ def search():
     print(response)
 
     return Response(response=json.dumps(response), status=200, content_type='application/json')
+
+
+# Podcast view
+@app.route('/podcast/<podcast_id>')
+@login_required
+def podcastinfo(podcast_id):
+    user_id = current_user.get_id()
+    podcast_db = mongo.db.podcasts
+    podcast_object = podcast_db.find_one({'podcast_id': podcast_id})
+    comment_list = []
+    if podcast_object:
+        podcast_id = podcast_object['podcast_id']
+        podcast_title_original = podcast_object['podcast_title_original']
+        description_original = podcast_object['description_original']
+        podcast_itunes = podcast_object['itunes_id']
+        image = podcast_object['image']
+        audio = podcast_object['audio']
