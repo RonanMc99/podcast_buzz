@@ -4,6 +4,7 @@ from podcastbuzz import app, mongo, bcrypt
 from podcastbuzz.forms import LogonForm, SignupForm
 from podcastbuzz.models import User
 from podcastbuzz.listen_notes import search_podcast
+from bson.objectid import ObjectId
 import json
 
 
@@ -108,3 +109,17 @@ def podcastinfo(podcast_id):
         podcast_itunes = podcast_object['itunes_id']
         image = podcast_object['image']
         audio = podcast_object['audio']
+        # get comments. If the podcast is in the DB, then at least one comment exists
+        comment_db = mongo.db.comments
+        comment_object = comment_db.find({'podcast_id': podcast_id}).sort('date_posted',pymongo.ASCENDING)
+        # display each comment
+        users = mongo.db.users
+        for comment in comment_object:
+            comment_user_id = comment['user_id']
+            user_json = users.find_one({'_id': ObjectId(comment_user_id)})
+            user_name = user_json['username']
+            comment_list.append({   
+                'user_name': user_name,
+                'text': comment['text'],
+                'date': comment['date_posted'].strftime("%m/%d/%Y %H:%M:%S")
+            })
