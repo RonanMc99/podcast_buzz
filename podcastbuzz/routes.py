@@ -54,6 +54,8 @@ def logon():
         if db_user and bcrypt.check_password_hash(db_user['password'], request.form['password']):
             loginuser = User(db_user)
             login_user(loginuser, remember=forms.remember.data)
+            nextpage = request.args.get('next')
+            return redirect(nextpage) if nextpage else redirect(url_for('home'))
         else:
             flash('Login unsuccessful! Please try again', 'danger')
     return render_template('logon.html', forms=forms, title='Logon')
@@ -63,4 +65,4 @@ def logon():
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('index'))
+    return redirect(url_for('home'))
