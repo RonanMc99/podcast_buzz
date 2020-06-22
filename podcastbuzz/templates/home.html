@@ -1,7 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container searchbox">
-    <h1>Hi {{ user.username }}</h1>
+<!-- search container -->
+<div class="container">
+    <div class="row text-center">
+        <strong>Search for Podcasts</strong>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <input onKeyDown="if(event.keyCode==13) return searchResult()" id="search_query" type="search"
+                    class="form-control" placeholder="Enter your search term...">
+            </div>
+            <div class="form-group" style="width: 50%; margin: auto;">
+                <input onclick="return searchResult()" type="button" class="form-control " value="Search">
+            </div>
+        </div>
+    </div>
 </div>
-{% endblock %}
+<div class="container" id="response-id" style="margin-top: 20px;"></div>
+    {% endblock %}
