@@ -94,7 +94,7 @@ def search():
     return Response(response=json.dumps(response), status=200, content_type='application/json')
 
 
-# Podcast view
+# podcast view
 @app.route('/podcast/<podcast_id>')
 @login_required
 def podcastinfo(podcast_id):
@@ -111,7 +111,7 @@ def podcastinfo(podcast_id):
         audio = podcast_object['audio']
         # get comments. If the podcast is in the DB, then at least one comment exists
         comment_db = mongo.db.comments
-        comment_object = comment_db.find({'podcast_id': podcast_id}).sort('date_posted',pymongo.ASCENDING)
+        comment_object = comment_db.find({'podcast_id': podcast_id}).sort('date_posted', pymongo.ASCENDING)
         # display each comment
         users = mongo.db.users
         for comment in comment_object:
@@ -123,3 +123,5 @@ def podcastinfo(podcast_id):
                 'text': comment['text'],
                 'date': comment['date_posted'].strftime("%m/%d/%Y %H:%M:%S")
             })
+    # If not found, get the podcast data from ListenNotes and create a new DB object
+    else:

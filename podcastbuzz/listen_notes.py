@@ -15,3 +15,13 @@ def search_podcast(search_param):
     response = requests.request('GET', url, headers=headers)
     response = json.loads(response.text)
     return(response)
+
+
+def get_podcast(podcast_id):
+    url = "https://listen-api.listennotes.com/api/v2/podcasts/" + str(podcast_id)
+    headers = {
+        'X-ListenAPI-Key': ListenAPI_Key
+    }
+    response = requests.request("GET", url, headers=headers)
+    response = json.loads(response.text)
+    return(response)
