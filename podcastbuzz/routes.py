@@ -3,7 +3,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 from podcastbuzz import app, mongo, bcrypt
 from podcastbuzz.forms import LogonForm, SignupForm
 from podcastbuzz.models import User
-from podcastbuzz.listen_notes import search_podcast
+from podcastbuzz.listen_notes import search_podcast, get_podcast
 from bson.objectid import ObjectId
 import json
 
@@ -125,3 +125,19 @@ def podcastinfo(podcast_id):
             })
     # If not found, get the podcast data from ListenNotes and create a new DB object
     else:
+        podcast_object = get_podcast(podcast_id)
+        podcast_id = podcast_object[podcast_id]
+        podcast_title_original = podcast_object['podcast_title_original']
+        description_original = podcast_object['description_original']
+        podcast_itunes = podcast_object['itunes_id']
+        image = podcast_object['image']
+        audio = "https://www.listennotes.com/embedded/e/" + str(podcast_object[id])
+        # put this podcast into the DB
+        podcast_db.insert_one(
+            'podcast_id': podcast_id,
+            'podcast_title_original': podcast_title_original
+            'description_original': description_original
+            'podcast_itunes': podcast_itunes
+            'image': image
+            'audio': audio
+        )
