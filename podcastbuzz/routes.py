@@ -6,6 +6,7 @@ from podcastbuzz.models import User
 from podcastbuzz.listen_notes import search_podcast, get_podcast
 from bson.objectid import ObjectId
 import json
+import pymongo
 
 
 # register home function
@@ -106,7 +107,7 @@ def podcastinfo(podcast_id):
         podcast_id = podcast_object['podcast_id']
         podcast_title_original = podcast_object['podcast_title_original']
         description_original = podcast_object['description_original']
-        podcast_itunes = podcast_object['itunes_id']
+        podcast_itunes = podcast_object['podcast_itunes']
         image = podcast_object['image']
         audio = podcast_object['audio']
         # get comments. If the podcast is in the DB, then at least one comment exists
@@ -126,21 +127,21 @@ def podcastinfo(podcast_id):
     # If not found, get the podcast data from ListenNotes and create a new DB object
     else:
         podcast_object = get_podcast(podcast_id)
-        podcast_id = podcast_object[podcast_id]
-        podcast_title_original = podcast_object['podcast_title_original']
-        description_original = podcast_object['description_original']
-        podcast_itunes = podcast_object['itunes_id']
+        podcast_id = podcast_id
+        podcast_title_original = podcast_object['title']
+        description_original = podcast_object['description']
+        podcast_itunes = podcast_object[-1]['itunes_id']
         image = podcast_object['image']
-        audio = "https://www.listennotes.com/embedded/e/" + str(podcast_object[id])
+        audio = "https://www.listennotes.com/embedded/e/" + str(podcast_object['episodes'][-1]['id'])
         # put this podcast into the DB
-        podcast_db.insert_one(
+        podcast_db.insert_one({
             'podcast_id': podcast_id,
-            'podcast_title_original': podcast_title_original
-            'description_original': description_original
-            'podcast_itunes': podcast_itunes
-            'image': image
+            'podcast_title_original': podcast_title_original,
+            'description_original': description_original,
+            'podcast_itunes': podcast_itunes,
+            'image': image,
             'audio': audio
-        )
+        })
     # Create the podcast object
     podcast_info = {
         'podcast_id': podcast_id,
@@ -155,3 +156,5 @@ def podcastinfo(podcast_id):
         'podcast_info': podcast_info,
         'comment_list': comment_list
     }
+    print(result)
+    return redirect('/')
