@@ -141,3 +141,17 @@ def podcastinfo(podcast_id):
             'image': image
             'audio': audio
         )
+    # Create the podcast object
+    podcast_info = {
+        'podcast_id': podcast_id,
+        'podcast_title_original': podcast_title_original,
+        'description_original': description_original,
+        'podcast_itunes': podcast_itunes,
+        'image': image,
+        'audio': audio,
+    }
+    # Create a dict to pass to the page template
+    result = {
+        'podcast_info': podcast_info,
+        'comment_list': comment_list
+    }
