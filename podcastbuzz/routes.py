@@ -130,7 +130,7 @@ def podcastinfo(podcast_id):
         podcast_id = podcast_id
         podcast_title_original = podcast_object['title']
         description_original = podcast_object['description']
-        podcast_itunes = podcast_object[-1]['itunes_id']
+        podcast_itunes = podcast_object['itunes_id']
         image = podcast_object['image']
         audio = "https://www.listennotes.com/embedded/e/" + str(podcast_object['episodes'][-1]['id'])
         # put this podcast into the DB
@@ -156,5 +156,4 @@ def podcastinfo(podcast_id):
         'podcast_info': podcast_info,
         'comment_list': comment_list
     }
-    print(result)
-    return redirect('/')
+    return render_template('podcast.html', user_id = user_id, podcast_id = podcast_id, dict=result)

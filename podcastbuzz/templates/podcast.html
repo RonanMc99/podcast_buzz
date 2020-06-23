@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Podcast container -->
+<div class="container" style="margin-top:10px ;">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-6">
+            <img src={{dict['podcast_info']['image']}} class="img-fluid img-thumbnail" alt="">
+        </div>
+    </div>
+    <div class="row text-center">
+        <h1 style="margin: auto;"> {{dict['podcast_info']['podcast_title_original']}}</h1>
+        <p style="margin: auto; text-align: justify;padding: 5px 30px;"> {{dict['podcast_info']['description_original']}}</p>
+    </div>
+</div>
+<h1 hidden id="user-id">{{user_id}}</h1>
+<h1 hidden id="podcast-id">{{ podcast_id }}</h1>
+<div>
+    <iframe src={{dict['podcast_info']['audio']}} style="width: auto; min-width: 100%;" frameborder="0"
+        scrolling="no"></iframe>
+</div>
+
+{% endblock %}
