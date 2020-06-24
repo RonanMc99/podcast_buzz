@@ -156,4 +156,4 @@ def podcastinfo(podcast_id):
         'podcast_info': podcast_info,
         'comment_list': comment_list
     }
-    return render_template('podcast.html', user_id = user_id, podcast_id = podcast_id, dict=result)
+    return render_template('podcast.html', user_id=user_id, podcast_id=podcast_id, dict=result)
