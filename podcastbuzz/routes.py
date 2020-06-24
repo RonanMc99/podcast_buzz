@@ -7,6 +7,7 @@ from podcastbuzz.listen_notes import search_podcast, get_podcast
 from bson.objectid import ObjectId
 import json
 import pymongo
+import datetime
 
 
 # register home function
@@ -157,3 +158,34 @@ def podcastinfo(podcast_id):
         'comment_list': comment_list
     }
     return render_template('podcast.html', user_id=user_id, podcast_id=podcast_id, dict=result)
+
+
+# add comment endpoint
+@app.route('/add_comment', methods=['POST'])
+def add_comment():
+    request_data = request.get_json(force=True)
+    text = request_data['text']
+    podcast_id = request_data['podcast_id']
+    user_id = request_data['user_id']
+    date_posted = datetime.datetime.utcnow()
+    # Create the comments collection
+    comment_db = mongo.db.comments
+    comment_db.insert_one({
+        'user_id': user_id,
+        'podcast_id': podcast_id,
+        'text': text,
+        'date_posted': date_posted
+    })
+    users = mongo.db.users
+    user_json = users.find_one({'_id': ObjectId(user_id)})
+    user_name = user_json['username']
+    # create response object
+    response = {
+        'results': "success",
+        'status': 200,
+        'user_name': user_name,
+        'text': text,
+        'date': date_posted.strftime("%m/%d/%Y %H:%M:%S")
+    }
+    
+    return Response(response=json.dumps(response), status=200, content_type='application/json')
