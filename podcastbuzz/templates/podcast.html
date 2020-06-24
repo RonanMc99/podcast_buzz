@@ -13,6 +13,11 @@
         <h1 style="margin: auto;"> {{ dict['podcast_info']['podcast_title_original'] }}</h1>
         <p style="margin: auto; text-align: justify;padding: 5px 30px;"> {{ dict['podcast_info']['description_original'] }}</p>
     </div>
+    <div class="row itunes-container">
+        <a class="btn btn-secondary btn-sm"
+            href="https://podcasts.apple.com/us/podcast/{{ dict['podcast_info']['podcast_itunes'] }}" rel="noopener"
+            target="_blank"><i class="fab fa-apple"></i> ITUNES </a>
+    </div>
 </div>
 <h1 hidden id="user-id">{{ user_id }}</h1>
 <h1 hidden id="podcast-id">{{ podcast_id }}</h1>
