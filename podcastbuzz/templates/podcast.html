@@ -30,7 +30,7 @@
     {% for item in dict['comment_list'] %}
     <div style="border: 2px solid black; padding:20px 30px; margin-top:10px; ">
         <div class='row'>User: {{item['user_name']}}</div>
-        <div class='row'>Comment: {{item['user_comment']}}</div>
+        <div class='row'>Comment: {{item['text']}}</div>
         <div class='row'>Date: {{item['date']}}</div>
     </div>
     {% endfor %}
