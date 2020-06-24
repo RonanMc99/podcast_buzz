@@ -35,4 +35,12 @@
     </div>
     {% endfor %}
 </div>
+<!-- Add Comment -->
+<div class='container'>
+    <div class='form-group' style="border: 2px solid rgb(12, 163, 233);padding: 30px;margin: 10px 100px;">
+        <label for="userComment">your comments</label>
+        <textarea id="add-comment" rows="6" type="text" class="form-control"></textarea>
+        <input onclick="addComment()" type="button" value="Submit" class="btn btn-secondary">
+    </div>
+</div>
 {% endblock %}
