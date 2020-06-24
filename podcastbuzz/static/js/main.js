@@ -33,3 +33,56 @@ function searchResult() {
         });
     }
 }
+
+
+function addComment() {
+    let userId = document.getElementById("user-id");
+    let podcastId = document.getElementById("podcast-id");
+    let addComment = document.getElementById("add-comment");
+
+    // check to see if a comment has contents, else create it
+    if($("add-comment").val().trim().length < 1){
+        alert("Add your comment first");
+        addComment.focus();
+    }else{ 
+        userId = userId.innerHTML;
+        podcastId = podcastId.innerHTML;
+        addComment = addComment.value;
+
+        let data = {
+            "user_id": userId,
+            "podcast_id": podcastId,
+            "comment_text": addComment
+        };
+
+        let settings = {
+            "url": "http://localhost:5000/add_comment",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/javascript"
+            },
+            "data": JSON.stringify(data)
+        };
+        // Use request to build comment
+        $.ajax(settings).done(function (response) {
+            let check = response.status;
+            let date = response.date;
+            let text = response.text;
+            let user_name = response.user_name;
+
+            if(check == "200"){
+                let html = '<div class="container">'
+                    + '<div class="row"><h5> Username:' + user_name + ' </h5></div>'
+                    + '<div class="row"><h5> Comment:' + text + ' </h5></div>'
+                    + '<div class="row"><h5> Date: ' + date + ' </h5></div>'
+                    + '</div>';
+                $("#comments-div").append(html);
+                document.getElementById("add-comment").value = "";
+                alert("Thanks for your comment!");
+            }else{
+                alert('An error occurred. Please try again');
+            }
+        });
+    }
+}
