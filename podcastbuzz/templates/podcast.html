@@ -13,7 +13,7 @@
         <h1 style="margin: auto;"> {{ dict['podcast_info']['podcast_title_original'] }}</h1>
         <p style="margin: auto; text-align: justify;padding: 5px 30px;"> {{ dict['podcast_info']['description_original'] }}</p>
     </div>
-    <div class="row itunes-container">
+    <div class="row" id='itunes-container'>
         <a class="btn btn-secondary btn-sm"
             href="https://podcasts.apple.com/us/podcast/{{ dict['podcast_info']['podcast_itunes'] }}" rel="noopener"
             target="_blank"><i class="fab fa-apple"></i> ITUNES </a>
@@ -25,5 +25,14 @@
     <iframe src={{ dict['podcast_info']['audio'] }} style="width: auto; min-width: 100%;" frameborder="0"
         scrolling="no"></iframe>
 </div>
-
+<!-- Comments container -->
+<div class='container' id='comments-container'>
+    {% for item in dict['comment_list'] %}
+    <div style="border: 2px solid black; padding:20px 30px; margin-top:10px; ">
+        <div class='row'>User: {{item['user_name']}}</div>
+        <div class='row'>Comment: {{item['user_comment']}}</div>
+        <div class='row'>Date: {{item['date']}}</div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
