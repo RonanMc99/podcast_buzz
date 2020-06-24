@@ -164,7 +164,7 @@ def podcastinfo(podcast_id):
 @app.route('/add_comment', methods=['POST'])
 def add_comment():
     request_data = request.get_json(force=True)
-    text = request_data['text']
+    text = request_data['comment_text']
     podcast_id = request_data['podcast_id']
     user_id = request_data['user_id']
     date_posted = datetime.datetime.utcnow()

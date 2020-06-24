@@ -38,21 +38,21 @@ function searchResult() {
 function addComment() {
     let userId = document.getElementById("user-id");
     let podcastId = document.getElementById("podcast-id");
-    let addComment = document.getElementById("add-comment");
+    let thisComment = document.getElementById("add-comment");
 
     // check to see if a comment has contents, else create it
-    if($("add-comment").val().trim().length < 1){
+    if($("#add-comment").val().trim().length < 1){
         alert("Add your comment first");
-        addComment.focus();
+        thisComment.focus();
     }else{ 
         userId = userId.innerHTML;
         podcastId = podcastId.innerHTML;
-        addComment = addComment.value;
+        thisComment = thisComment.value;
 
         let data = {
             "user_id": userId,
             "podcast_id": podcastId,
-            "comment_text": addComment
+            "comment_text": thisComment
         };
 
         let settings = {
