@@ -98,4 +98,16 @@ h3 {
 /* Main */
 
 /* Footer */
+footer {
+    width: 100%;
+    position: fixed;
+    background-color: var(--clr-violet);
+    margin: auto;
+    bottom: 0;
+}
 
+footer p {
+    font-size: .5em;
+    text-align: center;
+    margin: .5em;
+}
