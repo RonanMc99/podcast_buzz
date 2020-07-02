@@ -1,4 +1,5 @@
 /* set all elements to use box-sizing */
+
 *,
 *::before,
 *::after {
@@ -8,29 +9,30 @@
 }
 
 /* Define overall style variables */
+
 :root {
-    --ff-primary: 'Source Sans Pro', sans-serif;
-    --ff-secondary: 'Source Code Pro', monospace;
-
-    --fw-reg: 300;
-    --fw-bold: 900;
-
-    --clr-light: #e9c1c5;
-    --clr-dark: #2e284f;
-    --clr-accent: #9152a4;
-
-    --fs-h1: 3rem;
-    --fs-h2: 2.25rem;
-    --fs-h3: 1.25rem;
+    --ff-primary: 'Montserrat', sans-serif;
+    --ff-secondary: 'Helvetica', monospace;
+    --fw-reg: 400;
+    --fw-bold: 700;
+    --clr-light: #F2E4E5;
+    --clr-ltpink: #e9c1c5;
+    --clr-dkpink: #d598b9;
+    --clr-violet: #9152a4;
+    --clr-dkaccent: #2e284f;
+    --clr-dark: #001539;
+    --fs-h1: 1.5em;
+    --fs-h2: 1.2em;
+    --fs-h3: 1.1em;
     --fs-body: 1rem;
 }
 
 @media (min-width: 800px) {
     :root {
-        --fs-h1: 4.5rem;
-        --fs-h2: 3.75rem;
+        --fs-h1: 3em;
+        --fs-h2: 2.2em;
         --fs-h3: 1.5rem;
-        --fs-body: 1.125rem;
+        --fs-body: 1.125em;
     }
 }
 
@@ -42,10 +44,11 @@ body {
     margin: 0;
     font-family: var(--ff-primary);
     font-size: var(--fs-body);
-    line-height: 1.6;
+    line-height: 1.2em;
 }
 
 /* Typography */
+
 h1,
 h2,
 h3 {
@@ -54,32 +57,45 @@ h3 {
 }
 
 h1 {
-    font-size: var(--fs-h1)
+    font-size: var(--fs-h1);
+    font-weight: 700;
 }
 
 h2 {
-    font-size: var(--fs-h2)
+    font-size: var(--fs-h2);
 }
 
 h3 {
-    font-size: var(--fs-h3)
+    font-size: var(--fs-h3);
 }
 
 /* Nav */
+
 .navbar {
-    background: #2e284f;
-    background: -webkit-linear-gradient(left, #2e284f 0%, #001539 100%);
-    background: -o-linear-gradient(left, #2e284f 0%, #001539 100%);
-    background: linear-gradient(to right, #2e284f 0%, #001539 100%);
-    color: var(--clr-light);
-    padding: 10px 0;
+    background: var(--clr-violet);
 }
 
-.navbar .navbar-toggler {
-    color: var(--clr-light);
+#pb-brand {
+    background-color: var(--clr-violet);
+    margin: auto;
+    text-align: center;
 }
+
+.rounded-circle {
+    border: 3px solid white;
+}
+
+#pb-brand h1 {
+    text-transform: uppercase;
+    color: var(--clr-light);
+    padding: .75em;
+    letter-spacing: 0.05em;
+    text-shadow: 2px 2px #2e284f;
+}
+
 /* Form */
 
 /* Main */
 
 /* Footer */
+
