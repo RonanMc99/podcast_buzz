@@ -29,10 +29,10 @@
 
 @media (min-width: 800px) {
     :root {
-        --fs-h1: 3em;
-        --fs-h2: 2.2em;
-        --fs-h3: 1.5rem;
-        --fs-body: 1.125em;
+        --fs-h1: 2.5em;
+        --fs-h2: 2em;
+        --fs-h3: 1.3em;
+        --fs-body: 1em;
     }
 }
 
