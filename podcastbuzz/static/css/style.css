@@ -92,12 +92,50 @@ h3 {
     letter-spacing: 0.05em;
     text-shadow: 2px 2px #2e284f;
 }
+/* Main */
+.search h2 {
+    padding: 1.5em;
+}
 
 /* Form */
+.form-container {
+    margin: 2em auto;
+    padding: 1em;
+    width: 80%;
+    background-color: var(--clr-ltpink);
+    text-align: left;
+    border-radius: 10px;
+}
 
-/* Main */
-.search {
-    
+.form-control-label {
+    color: var(--clr-dark);
+}
+
+.form-group .btn {
+    margin-top: 1.5em;
+    border-color: var(--clr-violet);
+    color: var(--clr-violet);
+    font-weight: bold;
+}
+
+.form-group > .btn:hover {
+    background-color: var(--clr-dkaccent);
+}
+
+.form-check-input {
+    display: inline;
+    vertical-align: middle;
+}
+
+.form-check-label {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: small;
+}
+
+.form-group a {
+    color: var(--clr-violet);
+
 }
 
 /* Footer */
