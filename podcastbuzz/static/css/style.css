@@ -66,9 +66,14 @@ h2 {
 }
 
 h3 {
-    font-size: var(--fs-h3);
+    color: var(--clr-violet);
+    font-size: 2em;
+    text-align: center;
 }
 
+a:hover {
+    text-decoration: none;
+}
 /* Nav */
 
 .navbar {
