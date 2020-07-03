@@ -1,24 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!-- search container -->
 <div class="container search">
     <div class="text-center">
         <h2>Search for Podcasts</h2>
     </div>
-    <div class="row">
-        <div class="col-lg-3">
-        </div>
-        <div class="col-lg-6">
-            <div class="form-group">
-                <input onKeyDown="if(event.keyCode==13) return searchResult()" id="search_query" type="search"
-                    class="form-control" placeholder="Enter your search term...">
-            </div>
-            <div class="form-group" style="width: 50%; margin: auto;">
-                <input onclick="return searchResult()" type="button" class="form-control " value="Search">
-            </div>
+    <!-- Search bar -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto">
+            <h5 class="font-weight-light mb-4 font-italic text-white">Enter your podcast's title or search by keyword</h5>
+                <div class="form-group">
+                    <input onKeyDown="if(event.keyCode==13) return searchResult()" id="search_query" type="search"
+                        class="form-control" placeholder="the tim ferris show">
+                </div>
+                <div class="form-group">
+                    <input onclick="return searchResult()" type="button" class="form-control " value="Search">
+                </div>
         </div>
     </div>
 </div>
+
+
+<!-- Search Results -->
 <div class="container" id="response-id" style="margin-top: 20px;"></div>
     {% endblock %}

@@ -138,6 +138,20 @@ h3 {
 
 }
 
+/* Search */
+.search {
+    margin: 3em auto;
+    padding: 2em;
+    width: 80%;
+    background-color: var(--clr-ltpink);
+    border-radius: 10px;
+}
+
+.search h2 {
+    padding: 1em;
+}
+
+
 /* Footer */
 footer {
     width: 100%;
