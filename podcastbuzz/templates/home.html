@@ -6,20 +6,21 @@
         <h2>Search for Podcasts</h2>
     </div>
     <!-- Search bar -->
-    <div class="row mb-5">
+    <div class="row mb-2">
         <div class="col-lg-8 mx-auto">
             <h5 class="font-weight-light mb-4 font-italic text-white">Enter your podcast's title or search by keyword</h5>
-                <div class="form-group">
+                <div class="form-group text-center">
                     <input onKeyDown="if(event.keyCode==13) return searchResult()" id="search_query" type="search"
-                        class="form-control" placeholder="the tim ferris show">
+                        class="form-control" placeholder="the tim ferriss show">
+                    <input onclick="return searchResult()" type="button" value="Search"
+                        class="btn btn-link"></button>
                 </div>
                 <div class="form-group">
-                    <input onclick="return searchResult()" type="button" class="form-control " value="Search">
+                    
                 </div>
         </div>
     </div>
 </div>
-
 
 <!-- Search Results -->
 <div class="container" id="response-id" style="margin-top: 20px;"></div>
