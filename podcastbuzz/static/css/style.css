@@ -93,9 +93,6 @@ h3 {
     text-shadow: 2px 2px #2e284f;
 }
 /* Main */
-.search h2 {
-    padding: 1.5em;
-}
 
 /* Form */
 .form-container {
@@ -140,9 +137,8 @@ h3 {
 
 /* Search */
 .search {
-    margin: 3em auto;
+    margin: 3em 0;
     padding: 2em;
-    width: 80%;
     background-color: var(--clr-ltpink);
     border-radius: 10px;
 }
