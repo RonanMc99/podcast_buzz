@@ -148,3 +148,26 @@ function getComment(e) {
     let oldComment = document.getElementById("c_" + commentId).innerHTML;
     document.getElementById("edit-comment-textarea-id").value = oldComment;
 }
+
+// edit comment function
+function editComment(e) {
+    let commentId = e.id;
+    let newComment = document.getElementById("edit-comment-textarea-id").value;
+    let data = {
+        "commentId": commentId,
+        "text": newComment
+    }
+    let settings = {
+        "url": "http://localhost:5000/edit_comment",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/javascript"
+        },
+        "data": JSON.stringify(data)
+    };
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+        location.reload();
+    });
+}
