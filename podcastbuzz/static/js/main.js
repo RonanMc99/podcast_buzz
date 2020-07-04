@@ -70,12 +70,37 @@ function addComment() {
             let date = response.date;
             let text = response.text;
             let user_name = response.user_name;
-
+            let c_id = response.commentID;
+            // build the comment HTML
             if(check == "200"){
-                let html = '<div class="container">'
-                    + '<div class="row"><h5> Username:' + user_name + ' </h5></div>'
-                    + '<div class="row"><h5> Comment:' + text + ' </h5></div>'
-                    + '<div class="row"><h5> Date: ' + date + ' </h5></div>'
+                let html = '<div  style="border: 2px #2e284f; padding:20px 30px; margin-top:10px ; "id="div_' + c_id + '">'
+                    + '<div class="row"><h5> Username:' + user_name + ' </h5></div> '
+                    + '<div class="row"> <h5> Comment: <span id="c_' + c_id + '">' + text + ' </h5></div> '
+                    + '<div class="row"><h5> Date: ' + date + '</h5></div> '
+                    + '<div class="row">'
+                    + '<div><button onclick="getComment(this)" class="form-control " id="' + c_id + '"'
+                    + 'style="background-color: black;color:#9152a4 ;border-radius: 50px;"'
+                    + 'data-toggle="modal" data-target="#myModal">Edit</button>'
+                    + '<button onclick="deleteComment(this)" class="form-control " id="' + c_id + '"'
+                    + 'style="background-color: black;color:#9152a4 ;border-radius: 50px;">Delete</button>'
+                    + '</div>'
+                    + '</div>'
+                    + '<div class="modal fade" id="myModal" role="dialog">'
+                    + '<div class="modal-dialog">'
+                    + '<!-- Modal content-->'
+                    + '<div class="modal-content">'
+                    + '<div class="modal-header">'
+                    + '<button type="button" class="close" data-dismiss="modal">&times;</button>'
+                    + '</div>'
+                    + '<div class="modal-body">'
+                    + '<textarea class="form-control" id="edit-comment-textarea-id"></textarea>'
+                    + '</div>'
+                    + '<div class="modal-footer">'
+                    + '<button class="btn btn-info" onclick="editComment(this)" id="' + c_id + '">Edit</button>'
+                    + '</div>'
+                    + '</div>'
+                    + '</div>'
+                    + '</div>'
                     + '</div>';
                 $("#comments-div").append(html);
                 document.getElementById("add-comment").value = "";
