@@ -131,7 +131,7 @@ def podcastinfo(podcast_id):
             comment_list.append({   
                 'user_name': user_name,
                 'text': comment['text'],
-                'date': comment['date_posted'].strftime("%m/%d/%Y %H:%M:%S")
+                'date': comment['date_posted'].strftime("%m/%d/%Y %H:%M:%S"),
                 'owned': owned,
                 'commentId': str(comment['_id'])
             })
