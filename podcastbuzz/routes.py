@@ -198,5 +198,21 @@ def add_comment():
         'date': date_posted.strftime("%m/%d/%Y %H:%M:%S"),
         'commentId': str(commentId)
     }
-    
+    return Response(response=json.dumps(response), status=200, content_type='application/json')
+
+
+# edit comment endpoint
+@app.route('/edit_comment', methods=['POST'])
+def edit_comment():
+    request_data = request.get_json(force=True)
+    commentId = request_data['commentId'] if 'commentId' in request_data else ''
+    text = request_data['text'] if 'text' in request_data else ''
+    comment_db = mongo.db.comments
+    mycomment = {'_id': ObjectId(commentId)}
+    newvalues = {"$set": {"text": text,  "date_posted": datetime.datetime.utcnow()}}
+    comment_db.update_one(mycomment, newvalues)
+    response = {
+            'results': "success",
+            'status': 200
+        }
     return Response(response=json.dumps(response), status=200, content_type='application/json')
