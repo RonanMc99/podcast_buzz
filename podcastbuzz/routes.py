@@ -180,12 +180,12 @@ def add_comment():
     date_posted = datetime.datetime.utcnow()
     # Create the comments collection
     comment_db = mongo.db.comments
-    comment_db.insert_one({
+    commentId = comment_db.insert_one({
         'user_id': user_id,
         'podcast_id': podcast_id,
         'text': text,
         'date_posted': date_posted
-    })
+    }).inserted_id
     users = mongo.db.users
     user_json = users.find_one({'_id': ObjectId(user_id)})
     user_name = user_json['username']
