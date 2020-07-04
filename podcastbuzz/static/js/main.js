@@ -103,7 +103,7 @@ function addComment() {
                     + '</div>'
                     + '</div>'
                     + '</div>';
-                $("#comments-div").append(html);
+                $("#comments-container").append(html);
                 document.getElementById("add-comment").value = "";
                 alert("Thanks for your comment!");
             }else{
