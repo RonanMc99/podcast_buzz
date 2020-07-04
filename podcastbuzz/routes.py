@@ -119,11 +119,21 @@ def podcastinfo(podcast_id):
         for comment in comment_object:
             comment_user_id = comment['user_id']
             user_json = users.find_one({'_id': ObjectId(comment_user_id)})
-            user_name = user_json['username']
+            if user_json:
+                user_name = user_json['username']
+                if user_id == comment['user_id']:
+                    owned = True
+                else:
+                    owned = False
+            else:
+                user_name = 'Anonymous'
+                owned = False
             comment_list.append({   
                 'user_name': user_name,
                 'text': comment['text'],
                 'date': comment['date_posted'].strftime("%m/%d/%Y %H:%M:%S")
+                'owned': owned,
+                'commentId': str(comment['_id'])
             })
     # If not found, get the podcast data from ListenNotes and create a new DB object
     else:
