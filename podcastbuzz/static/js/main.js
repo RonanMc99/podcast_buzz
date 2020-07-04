@@ -1,3 +1,4 @@
+// search function
 function searchResult() {
     let query = document.getElementById("search_query");
     if (query.value == "") {
@@ -34,7 +35,7 @@ function searchResult() {
     }
 }
 
-
+// add comment function
 function addComment() {
     let userId = document.getElementById("user-id");
     let podcastId = document.getElementById("podcast-id");
