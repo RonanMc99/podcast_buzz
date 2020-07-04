@@ -195,7 +195,8 @@ def add_comment():
         'status': 200,
         'user_name': user_name,
         'text': text,
-        'date': date_posted.strftime("%m/%d/%Y %H:%M:%S")
+        'date': date_posted.strftime("%m/%d/%Y %H:%M:%S"),
+        'commentId': str(commentId)
     }
     
     return Response(response=json.dumps(response), status=200, content_type='application/json')
