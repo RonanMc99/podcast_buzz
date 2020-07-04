@@ -216,3 +216,17 @@ def edit_comment():
             'status': 200
         }
     return Response(response=json.dumps(response), status=200, content_type='application/json')
+
+
+# delete comment endpoint
+@app.route("/delete_comment", methods=['POST'])
+def delete_comment():
+    request_data = request.get_json(force=True)
+    commentId = request_data["commentId"] if "commentId" in request_data else ''
+    comment_db = mongo.db.comments
+    comment_db.delete_one({'_id': ObjectId(commentId)})
+    response = {
+            'results': "success",
+            'status': 200
+        }
+    return Response(response=json.dumps(response), status=200, content_type='application/json')
