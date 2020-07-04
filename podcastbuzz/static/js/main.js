@@ -141,3 +141,10 @@ function deleteComment(e) {
         return false;
     }
 }
+
+// get comment function
+function getComment(e) {
+    let commentId = e.id;
+    let oldComment = document.getElementById("c_" + commentId).innerHTML;
+    document.getElementById("edit-comment-textarea-id").value = oldComment;
+}
