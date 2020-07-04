@@ -28,16 +28,44 @@
 <!-- Comments container -->
 <div class='container' id='comments-container'>
     {% for item in dict['comment_list'] %}
-    <div style="border: 2px solid black; padding:20px 30px; margin-top:10px; ">
+    <div style="border: 2px solid #2e284f; padding:20px 30px; margin-top:10px; ">
         <div class='row'>User: {{item['user_name']}}</div>
         <div class='row'>Comment: {{item['text']}}</div>
         <div class='row'>Date: {{item['date']}}</div>
+    </div>
+    <!-- Edit and Delete comments -->
+    {% if item['owned'] %}
+    <div class="row">
+        <div><button onclick="getComment(this)" class="form-control " id="{{item['commentId']}}"
+                style="background-color: #001539;color:#f2e4e5 ;border-radius: 50px;" data-toggle="modal"
+                data-target="#myModal">Edit</button>
+            <button onclick="deleteComment(this)" class="form-control " id="{{item['commentId']}}"
+                style="background-color: #001539;color:#f2e4e5;border-radius: 50px;">Delete</button>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <textarea class="form-control" id="edit-comment-textarea-id"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-info" onclick="editComment(this)" id="{{item['commentId']}}">Edit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
     </div>
     {% endfor %}
 </div>
 <!-- Add Comment -->
 <div class='container'>
-    <div class='form-group' style="border: 2px solid rgb(12, 163, 233);padding: 30px;margin: 10px 100px;">
+    <div class='form-group' style="border: 2px solid #2e284f;padding: 30px;margin: 10px 100px;">
         <label for="userComment">your comments</label>
         <textarea id="add-comment" rows="6" type="text" class="form-control"></textarea>
         <input onclick="addComment()" type="button" value="Submit" class="btn btn-secondary">
