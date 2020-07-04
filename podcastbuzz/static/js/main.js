@@ -112,3 +112,32 @@ function addComment() {
         });
     }
 }
+
+// delete comment function
+function deleteComment(e) {
+    let commentId = e.id;
+    let divId = "div_" + e.id;
+    let div1 = document.getElementById(divId);
+    let confirmation = confirm("Are you sure you want to delete this comment?");
+    if (confirmation) {
+        let data = {
+            "commentId": commentId
+        }
+        let settings = {
+            "url": "http://localhost:5000/delete_comment",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/javascript"
+            },
+            "data": JSON.stringify(data)
+        };
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            console.log(divId)
+            div1.parentNode.removeChild(div1);
+        });
+    } else {
+        return false;
+    }
+}
