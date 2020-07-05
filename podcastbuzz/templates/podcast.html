@@ -2,16 +2,15 @@
 
 {% block content %}
 <!-- Podcast container -->
-<div class="container" style="margin-top:10px ;">
+<div class="container pc-info-container">
     <div class="row">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-6">
-            <img src={{ dict['podcast_info']['image'] }} class="img-fluid img-thumbnail" alt="">
+        <div class="col-12">
+            <img src={{ dict['podcast_info']['image'] }} class=".img-fluid img-thumbnail mx-auto d-block" alt="Podcast thumbnail">
         </div>
     </div>
-    <div class="row text-center">
-        <h1 style="margin: auto;"> {{ dict['podcast_info']['podcast_title_original'] }}</h1>
-        <p style="margin: auto; text-align: justify;padding: 5px 30px;"> {{ dict['podcast_info']['description_original'] }}</p>
+    <div class="row pc-info-text">
+        <h1>{{ dict['podcast_info']['podcast_title_original'] }}</h1>
+        <p> {{ dict['podcast_info']['description_original'] }}</p>
     </div>
     <div class="row" id='itunes-container'>
         <a class="btn btn-secondary btn-sm"

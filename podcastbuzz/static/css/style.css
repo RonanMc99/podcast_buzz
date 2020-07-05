@@ -163,11 +163,21 @@ a:hover {
     overflow: hidden;
 }
 
-/* Line clamp feature courtesy: CSS-tricks.com https://css-tricks.com/line-clampin/  */
+    /* Line clamp feature courtesy: CSS-tricks.com https://css-tricks.com/line-clampin/  */
 .line-clamp {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+}
+
+/* Podcast view */
+.pc-info-container {
+    margin-top: 1.5em;
+}
+
+.pc-info-text {
+    margin-top: 1em;
+    justify-content: center;
 }
 
 /* Footer */
