@@ -14,7 +14,6 @@ import datetime
 @app.route("/")
 @app.route("/home")
 def home():
-    user = {'username': 'Ronan'}
     return render_template('home.html', user=user)
 
 
