@@ -14,7 +14,7 @@ import datetime
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html', user=user)
+    return render_template('home.html')
 
 
 # Create the 'register' view
