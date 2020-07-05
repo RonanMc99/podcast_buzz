@@ -180,6 +180,14 @@ a:hover {
     justify-content: center;
 }
 
+.itunes-link {
+    color: var(--clr-violet);
+}
+
+.itunes-link:hover {
+    color: var(--clr-dkaccent);
+}
+
 /* Footer */
 footer {
     width: 100%;
