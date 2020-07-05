@@ -27,11 +27,16 @@
 <!-- Comments container -->
 <div class='container' id='comments-container'>
     {% for item in dict['comment_list'] %}
-    <div style="border: 2px solid #2e284f; padding:20px 30px; margin-top:10px; ">
-        <div class='row'>User: {{item['user_name']}}</div>
-        <div class='row'>Comment: {{item['text']}}</div>
-        <div class='row'>Date: {{item['date']}}</div>
-    </div>
+    <div id="div_{{item['commentId']}}">
+        <div class="row">
+            <h5> Username: {{item['user_name']}}</h5>
+        </div>
+        <div class="row">
+            <h5> Comment: <span id="c_{{item['commentId']}}">{{item['text']}}</span></h5>
+        </div>
+        <div class="row">
+            <h5> Date: {{item['date']}}</h5>
+        </div>
     <!-- Edit and Delete comments -->
     {% if item['owned'] %}
     <div class="row">
