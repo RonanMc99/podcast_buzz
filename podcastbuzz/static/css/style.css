@@ -197,7 +197,7 @@ a:hover {
 
 /* iFrame */
 .iframe {
-    margin: 0 auto;
+    margin: 1em auto;
     padding: 5px;
     width: 90%;
     border-radius: 12px;
