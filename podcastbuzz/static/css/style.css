@@ -173,11 +173,18 @@ a:hover {
 /* Podcast view */
 .pc-info-container {
     margin-top: 1.5em;
+    text-align: center;
 }
 
 .pc-info-text {
     margin-top: 1em;
     justify-content: center;
+    display: inline-block;
+}
+
+.pc-info-text > p {
+    margin-top: .5em;
+    font-size: var(--fs-h3);
 }
 
 .itunes-link {
