@@ -1,0 +1,6 @@
+/.DS_Store
+/.flaskenv
+/.git
+/.vscode
+/__pycache__
+/venv
