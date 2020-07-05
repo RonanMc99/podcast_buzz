@@ -68,7 +68,6 @@ h2 {
 h3 {
     color: var(--clr-violet);
     font-size: 2em;
-    text-align: center;
 }
 
 a:hover {
@@ -156,6 +155,19 @@ a:hover {
     font-size: 0.95rem;
     color: #aaa;
     font-style: italic;
+}
+
+/* Search Results */
+.pc-description {
+    width: 400px;
+    overflow: hidden;
+}
+
+/* Line clamp feature courtesy: CSS-tricks.com https://css-tricks.com/line-clampin/  */
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 /* Footer */

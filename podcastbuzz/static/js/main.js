@@ -23,10 +23,10 @@ function searchResult() {
                         + '<div class="col-lg-3">'
                         + '<a class="link-class" href="' + infoUrl + '"><img src="' + image + '"  alt="as" width="200" height="200px"></a>'
                         + '</div>'
-                        + '<div class="col-lg-8">'
+                        + '<div class="pc-description line-clamp col-lg-8">'
                         + '<a class="link-class" href="' + infoUrl + '"><h3>' + title + '</h3></a>'
-                        + '<h6>' + description + ' </h6>'
-                        + ' </div>'
+                        + '<p>' + description + '</p>'
+                        + '</div>'
                         + '</div>'
                     $("#response-id").append(html);
                 }
