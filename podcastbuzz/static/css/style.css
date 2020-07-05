@@ -195,6 +195,18 @@ a:hover {
     color: var(--clr-dkaccent);
 }
 
+/* iFrame */
+.iframe {
+    margin: 0 auto;
+    padding: 5px;
+    width: 90%;
+    border-radius: 12px;
+    -moz-box-shadow: 4px 4px 14px var(--clr-dkaccent);
+    -webkit-box-shadow: 4px 4px 14px var(--clr-dkaccent);
+    box-shadow: 4px 4px 14px var(--clr-dkaccent);
+    background-color: #fff;
+}
+
 /* Footer */
 footer {
     width: 100%;
