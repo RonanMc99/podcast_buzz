@@ -1,1 +1,1 @@
-web: gunicorn podcastbuzz
+web: gunicorn run
