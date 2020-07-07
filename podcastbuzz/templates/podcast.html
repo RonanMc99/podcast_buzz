@@ -28,18 +28,18 @@
 <div class='container' id='comments-container'>
     {% for item in dict['comment_list'] %}
     <div id="div_{{item['commentId']}}">
-        <div class="row">
-            <h5> Username: {{item['user_name']}}</h5>
+        <div class="row d-flex wrap">
+            <p>{{item['user_name']}} said...</p>
         </div>
-        <div class="row">
-            <h5> Comment: <span id="c_{{item['commentId']}}">{{item['text']}}</span></h5>
+        <div class="row d-flex wrap">
+            <h5><span id="c_{{item['commentId']}}">{{item['text']}}</span></h5>
         </div>
-        <div class="row">
-            <h5> Date: {{item['date']}}</h5>
+        <div class="row d-flex wrap">
+            <p>On..{{item['date']}}</p>
         </div>
     <!-- Edit and Delete comments -->
     {% if item['owned'] %}
-    <div class="row">
+    <div class="row d-flex float-right">
         <div><button onclick="getComment(this)" class="form-control " id="{{item['commentId']}}"
                 style="background-color: #001539;color:#f2e4e5 ;border-radius: 50px;" data-toggle="modal"
                 data-target="#myModal">Edit</button>

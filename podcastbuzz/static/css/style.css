@@ -207,6 +207,22 @@ a:hover {
     background-color: #fff;
 }
 
+/* comments container */
+#comments-container {
+    margin: 2em auto;
+    padding: 5px;
+    width: 90%;
+    background-color: var(--clr-ltpink);
+}
+
+.wrap > p {
+    flex-wrap: wrap;
+}
+
+.float-right {
+    float: right;
+}
+
 /* Footer */
 footer {
     width: 100%;
