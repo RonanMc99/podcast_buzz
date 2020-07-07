@@ -7,11 +7,9 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-app.config.update(
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'this-should-be-a-secret-string'
-    MONGO_DBNAME = os.environ.get('MONGO_DBNAME')
-    MONGO_URI = os.environ.get('MONGO_URI')
-)
+app.config.from_envar('SECRET_KEY')
+app.config.from_envar('MONGO_DBNAME')
+app.config.from_envar('MONGO_URI')
 # app.config.from_object(Config)
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
