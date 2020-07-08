@@ -198,7 +198,7 @@ a:hover {
 
 /* iFrame */
 .iframe {
-    margin: 2em auto;
+    margin: 1em auto;
     padding: 5px;
     width: 90%;
     border-radius: 12px;
@@ -260,7 +260,7 @@ a:hover {
 /* Add Comment */
 
 .comment-entry {
-    margin: 1em;
+    margin-bottom: 1em;
     padding-bottom: 2em;
     width: 90%;
 }
