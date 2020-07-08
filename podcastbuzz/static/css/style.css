@@ -212,7 +212,6 @@ a:hover {
     margin: 2em auto;
     padding: 5px;
     width: 90%;
-    background-color: var(--clr-ltpink);
 }
 
 .wrap > p {
