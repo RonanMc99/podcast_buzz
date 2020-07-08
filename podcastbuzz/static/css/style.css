@@ -115,7 +115,8 @@ a:hover {
 .form-group .btn {
     margin-top: 1.5em;
     border-color: var(--clr-violet);
-    color: var(--clr-violet);
+    background-color: var(--clr-violet);
+    color: var(--clr-light);
     font-weight: bold;
     text-decoration: none;
 }
@@ -254,6 +255,40 @@ a:hover {
     color: var(--clr-light);
     border-radius: 50px;
     font-size: 0.8em;
+}
+
+/* Add Comment */
+
+.comment-entry {
+    margin-bottom: 1em;
+    padding-bottom: 2em;
+    width: 90%;
+}
+
+.add-comment {
+    background-color: var(--clr-light);
+}
+
+.add-comment > h3 {
+    margin: 20px 0px;
+    padding-left: 0px;
+}
+
+.add-comment > p {
+    color: var(--clr-dkaccent);
+    font-size: var(--fs-h3);
+}
+
+.add-comment .btn {
+    margin-top: 1em;
+    border-color: var(--clr-violet);
+    background-color: var(--clr-violet);
+    color: var(--clr-light);
+    font-weight: bold;
+}
+
+.form-group > .btn:hover {
+    background-color: var(--clr-dkaccent);
 }
 
 /* Footer */
