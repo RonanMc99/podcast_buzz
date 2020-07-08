@@ -27,6 +27,34 @@
 <!-- Comments container -->
 <div class='container' id='comments-container'>
     {% for item in dict['comment_list'] %}
+            <!-- Edit and Delete comments -->
+            {% if item['owned'] %}
+            <div class="row d-flex float-right">
+                <div><button onclick="getComment(this)" class="form-control " id="{{item['commentId']}}"
+                        style="background-color: #001539;color:#f2e4e5 ;border-radius: 50px;" data-toggle="modal"
+                        data-target="#myModal">Edit</button>
+                    <button onclick="deleteComment(this)" class="form-control " id="{{item['commentId']}}"
+                        style="background-color: #001539;color:#f2e4e5;border-radius: 50px;">Delete</button>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <textarea class="form-control" id="edit-comment-textarea-id"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-info" onclick="editComment(this)"
+                                id="{{item['commentId']}}">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
     <div id="div_{{item['commentId']}}">
         <div class="row d-flex wrap">
             <p>{{item['user_name']}} said...</p>
@@ -37,33 +65,6 @@
         <div class="row d-flex wrap">
             <p>On..{{item['date']}}</p>
         </div>
-    <!-- Edit and Delete comments -->
-    {% if item['owned'] %}
-    <div class="row d-flex float-right">
-        <div><button onclick="getComment(this)" class="form-control " id="{{item['commentId']}}"
-                style="background-color: #001539;color:#f2e4e5 ;border-radius: 50px;" data-toggle="modal"
-                data-target="#myModal">Edit</button>
-            <button onclick="deleteComment(this)" class="form-control " id="{{item['commentId']}}"
-                style="background-color: #001539;color:#f2e4e5;border-radius: 50px;">Delete</button>
-        </div>
-    </div>
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <textarea class="form-control" id="edit-comment-textarea-id"></textarea>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-info" onclick="editComment(this)" id="{{item['commentId']}}">Edit</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {% endif %}
     </div>
     {% endfor %}
 </div>
