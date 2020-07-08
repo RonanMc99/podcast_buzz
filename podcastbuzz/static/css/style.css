@@ -214,12 +214,35 @@ a:hover {
     width: 90%;
 }
 
-.wrap > p {
-    flex-wrap: wrap;
+.each-comment {
+    /* border: 1px solid var(--clr-dkaccent); */
+    margin: 1em auto;
+    background-color: var(--clr-ltpink);
+    -moz-box-shadow: 4px 4px 14px var(--clr-dkaccent);
+    -webkit-box-shadow: 4px 4px 14px var(--clr-dkaccent);
+    box-shadow: 2px 2px 8px var(--clr-dkaccent);
+    border-radius: 12px;
 }
 
-.float-right {
-    float: right;
+.comment-text > p {
+    margin: 1em;
+    text-align: start;
+    color: var(--clr-dkaccent);
+    opacity: 0.5;
+}
+
+.comment-text > h5 {
+    margin: 1.5em;
+    padding: 1em;
+    color: var(--clr-dark);
+}
+
+.comment-button {
+    background-color: var(--clr-dkaccent);
+    color: var(--clr-light);
+    border-radius: 50px;
+    font-size: 0.8em;
+    width: 50%;
 }
 
 /* Footer */
