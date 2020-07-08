@@ -25,52 +25,58 @@
         scrolling="no"></iframe>
 </div>
 <!-- Comments container -->
-<div class='container' id='comments-container'>
-    {% for item in dict['comment_list'] %}
-    <div id="div_{{item['commentId']}}">
-        <div class="row">
-            <h5> Username: {{item['user_name']}}</h5>
-        </div>
-        <div class="row">
-            <h5> Comment: <span id="c_{{item['commentId']}}">{{item['text']}}</span></h5>
-        </div>
-        <div class="row">
-            <h5> Date: {{item['date']}}</h5>
-        </div>
-    <!-- Edit and Delete comments -->
-    {% if item['owned'] %}
-    <div class="row">
-        <div><button onclick="getComment(this)" class="form-control " id="{{item['commentId']}}"
-                style="background-color: #001539;color:#f2e4e5 ;border-radius: 50px;" data-toggle="modal"
-                data-target="#myModal">Edit</button>
-            <button onclick="deleteComment(this)" class="form-control " id="{{item['commentId']}}"
-                style="background-color: #001539;color:#f2e4e5;border-radius: 50px;">Delete</button>
-        </div>
-    </div>
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <div class='container' id='comments-container'>
+        {% for item in dict['comment_list'] %}
+            <div class="row each-comment" id="div_{{item['commentId']}}">
+                <div class="col col-md-9">
+                    <div class="row comment-text">
+                        <p>{{item['user_name']}} said...</p>
+                    </div>
+                    <div class="row comment-text">
+                        <h5><span id="c_{{item['commentId']}}">{{item['text']}}</span></h5>
+                    </div>
+                    <div class="row comment-text">
+                        <p>{{item['date']}}</p>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <textarea class="form-control" id="edit-comment-textarea-id"></textarea>
+                <!-- Edit and Delete comments -->
+                {% if item['owned'] %}
+                <div class="col text-right align-self-center col-md-3">
+                    <button onclick="getComment(this)" class="form-control btn btn-outline-light comment-button"
+                        id="{{item['commentId']}}"
+                        data-toggle="modal" data-target="#myModal">Edit</button>
+                    <button onclick="deleteComment(this)" class="form-control btn btn-outline-light comment-button"
+                        id="{{item['commentId']}}">Delete</button>
                 </div>
-                <div class="modal-footer">
-                    <button class="btn btn-info" onclick="editComment(this)" id="{{item['commentId']}}">Edit</button>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5>Edit your comment:</h5>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <textarea class="form-control" id="edit-comment-textarea-id"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-outline-light edit-button" onclick="editComment(this)"
+                                    id="{{item['commentId']}}">Edit</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                {% endif %}
             </div>
-        </div>
+        {% endfor %}
     </div>
-    {% endif %}
-    </div>
-    {% endfor %}
 </div>
 <!-- Add Comment -->
-<div class='container'>
-    <div class='form-group' style="border: 2px solid #2e284f;padding: 30px;margin: 10px 100px;">
-        <label for="userComment">your comments</label>
+<div class="container comment-entry">
+    <div class='form-group add-comment text-center'>
+        <h3>Join the buzz!</h3>
+        <p>Share your thoughts on this podcast and start a new conversation!</p>
+        <label for="userComment"></label>
         <textarea id="add-comment" rows="6" type="text" class="form-control"></textarea>
         <input onclick="addComment()" type="button" value="Submit" class="btn btn-secondary">
     </div>

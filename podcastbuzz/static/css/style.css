@@ -115,7 +115,8 @@ a:hover {
 .form-group .btn {
     margin-top: 1.5em;
     border-color: var(--clr-violet);
-    color: var(--clr-violet);
+    background-color: var(--clr-violet);
+    color: var(--clr-light);
     font-weight: bold;
     text-decoration: none;
 }
@@ -205,6 +206,89 @@ a:hover {
     -webkit-box-shadow: 4px 4px 14px var(--clr-dkaccent);
     box-shadow: 4px 4px 14px var(--clr-dkaccent);
     background-color: #fff;
+}
+
+/* comments container */
+#comments-container {
+    margin: 2em auto;
+    padding: 5px;
+    width: 90%;
+}
+
+.each-comment {
+    margin: 1em auto;
+    background-color: var(--clr-ltpink);
+    -moz-box-shadow: 4px 4px 14px var(--clr-dkaccent);
+    -webkit-box-shadow: 4px 4px 14px var(--clr-dkaccent);
+    box-shadow: 2px 2px 8px var(--clr-dkaccent);
+    border-radius: 12px;
+}
+
+.comment-text > p {
+    margin: 1em;
+    text-align: start;
+    color: var(--clr-dkaccent);
+    opacity: 0.5;
+}
+
+.comment-text > h5 {
+    margin: 1.5em;
+    padding: 1em;
+    color: var(--clr-dark);
+}
+
+.comment-button {
+    background-color: var(--clr-dkaccent);
+    color: var(--clr-light);
+    border-radius: 50px;
+    font-size: 0.8em;
+    width: 50%;
+}
+
+/* modal */
+.modal-content {
+    background-color: var(--clr-ltpink);
+}
+
+.edit-button {
+    background-color: var(--clr-dkaccent);
+    color: var(--clr-light);
+    border-radius: 50px;
+    font-size: 0.8em;
+}
+
+/* Add Comment */
+
+.comment-entry {
+    margin-bottom: 1em;
+    padding-bottom: 2em;
+    width: 90%;
+}
+
+.add-comment {
+    background-color: var(--clr-light);
+}
+
+.add-comment > h3 {
+    margin: 20px 0px;
+    padding-left: 0px;
+}
+
+.add-comment > p {
+    color: var(--clr-dkaccent);
+    font-size: var(--fs-h3);
+}
+
+.add-comment .btn {
+    margin-top: 1em;
+    border-color: var(--clr-violet);
+    background-color: var(--clr-violet);
+    color: var(--clr-light);
+    font-weight: bold;
+}
+
+.form-group > .btn:hover {
+    background-color: var(--clr-dkaccent);
 }
 
 /* Footer */
