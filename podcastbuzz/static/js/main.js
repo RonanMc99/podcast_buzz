@@ -57,7 +57,7 @@ function addComment() {
         };
 
         let settings = {
-            "url": "http://localhost:5000/add_comment",
+            "url": "https://podcast-buzz.herokuapp.com/add_comment",
             "method": "POST",
             "timeout": 0,
             "headers": {
@@ -124,7 +124,7 @@ function deleteComment(e) {
             "commentId": commentId
         }
         let settings = {
-            "url": "http://localhost:5000/delete_comment",
+            "url": "https://podcast-buzz.herokuapp.com/delete_comment",
             "method": "POST",
             "timeout": 0,
             "headers": {
@@ -158,7 +158,7 @@ function editComment(e) {
         "text": newComment
     }
     let settings = {
-        "url": "http://localhost:5000/edit_comment",
+        "url": "https://podcast-buzz.herokuapp.com/edit_comment",
         "method": "POST",
         "timeout": 0,
         "headers": {
