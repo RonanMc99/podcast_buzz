@@ -42,10 +42,10 @@
                 <!-- Edit and Delete comments -->
                 {% if item['owned'] %}
                 <div class="col text-right align-self-center col-md-3">
-                    <button onclick="getComment(this)" class="form-control btn btn-outline-light btn-sm comment-button"
+                    <button onclick="getComment(this)" class="form-control btn btn-outline-light comment-button"
                         id="{{item['commentId']}}"
                         data-toggle="modal" data-target="#myModal">Edit</button>
-                    <button onclick="deleteComment(this)" class="form-control btn btn-outline-light btn-sm comment-button"
+                    <button onclick="deleteComment(this)" class="form-control btn btn-outline-light comment-button"
                         id="{{item['commentId']}}">Delete</button>
                 </div>
                 <div class="modal fade" id="myModal" role="dialog">
@@ -53,13 +53,14 @@
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
+                                <h5>Edit your comment:</h5>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body">
                                 <textarea class="form-control" id="edit-comment-textarea-id"></textarea>
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-info" onclick="editComment(this)"
+                                <button class="btn btn-outline-light edit-button" onclick="editComment(this)"
                                     id="{{item['commentId']}}">Edit</button>
                             </div>
                         </div>

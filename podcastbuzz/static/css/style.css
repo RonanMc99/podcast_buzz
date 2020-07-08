@@ -215,7 +215,6 @@ a:hover {
 }
 
 .each-comment {
-    /* border: 1px solid var(--clr-dkaccent); */
     margin: 1em auto;
     background-color: var(--clr-ltpink);
     -moz-box-shadow: 4px 4px 14px var(--clr-dkaccent);
@@ -243,6 +242,18 @@ a:hover {
     border-radius: 50px;
     font-size: 0.8em;
     width: 50%;
+}
+
+/* modal */
+.modal-content {
+    background-color: var(--clr-ltpink);
+}
+
+.edit-button {
+    background-color: var(--clr-dkaccent);
+    color: var(--clr-light);
+    border-radius: 50px;
+    font-size: 0.8em;
 }
 
 /* Footer */
