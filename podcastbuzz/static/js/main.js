@@ -7,7 +7,7 @@ function searchResult() {
         return false;
     } else {
         document.getElementById('response-id').innerHTML = "";
-        let queryUrl = "http://localhost:5000/search?q=" + query.value;
+        let queryUrl = "https://podcast-buzz.herokuapp.com/search?q=" + query.value;
         $.ajax({
             url: queryUrl,
             type: 'GET',
