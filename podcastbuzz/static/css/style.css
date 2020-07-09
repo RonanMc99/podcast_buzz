@@ -291,6 +291,56 @@ a:hover {
     background-color: var(--clr-dkaccent);
 }
 
+/* New comment verify */
+.new-comment-verify {
+    margin: 1em auto;
+    padding: .5em;
+    border: 1px solid var(--clr-dkaccent);
+    background-color: var(--clr-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.new-comment-heading {
+    color: var(--clr-violet);
+    font-size: var(--fs-h2);
+    font-weight: bold;
+}
+
+.new-comment-body {
+    font-size: var(--fs-h3);
+    font-style: italic;
+}
+
+.post-button {
+    margin: .5em;
+    padding: 0.5em 1em;
+    border-color: var(--clr-violet);
+    border-radius: 50px;
+    background-color: var(--clr-violet);
+    color: #FFF;
+    text-decoration: none;
+}
+
+.post-button:hover {
+    background-color: var(--clr-dkaccent);
+}
+
+.edit-del-button {
+    margin: .2em;
+    padding: 0.5em;
+    border-color: var(--clr-violet);
+    border-radius: 50px;
+    background-color: var(--clr-light);
+    color: var(--clr-dkaccent);
+}
+
+.edit-del-button:hover {
+    background-color: var(--clr-dkaccent);
+    color: var(--clr-light);
+}
+
 /* Footer */
 footer {
     width: 100%;
