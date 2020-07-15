@@ -2,6 +2,9 @@
 
 ![PCbuzz-screenshot1](https://user-images.githubusercontent.com/51950969/87582896-fbe8ef00-c6d2-11ea-91b7-cefc38646c32.png)
 
+## Live Demo
+[See the live demo here](https://podcast-buzz.herokuapp.com/)
+
 ## Introduction
 
 PodcastBuzz allows users to search for and comment on their favourite podcast episodes.
