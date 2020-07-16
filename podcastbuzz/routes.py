@@ -14,7 +14,11 @@ import datetime
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html')
+    # Check to see if user is already logged in, if not, prompt
+    if current_user.is_authenticated:
+        return render_template('home.html')
+    else:
+        return render_template('new.html')
 
 
 # Create the 'register' view
